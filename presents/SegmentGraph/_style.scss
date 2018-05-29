@@ -1,0 +1,109 @@
+.Pie, .Bar {
+  @extend %fontA400;
+  @extend %no-highlight;
+
+  .segment {
+    cursor: pointer;
+  }
+
+  &.activeSegment {
+    .label.active {
+      @extend %fontA600;
+    }
+  }
+
+}
+
+// ====================================================
+// ====================================================
+// ====================================================
+
+.Bar {
+
+  ul {
+    //border: 1px solid red;
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+
+    display: flex;
+    align-items: center;
+  }
+
+  li {
+    //border: 1px solid blue;
+
+    flex: 1; //predefinovane v TSX
+
+    //kvoli zarovnaniu obsahu
+    display: flex;
+    align-items: center; //vert
+    justify-content: center; //horiz
+
+    transition: height 0.2s;
+
+    min-width: 45px; //aby sa zmestil neotoceny label
+
+    &:hover {
+      filter: brightness(0.985);
+    }
+  }
+
+  .label {
+    //border: 1px solid green;
+    font-size: 13px;
+    line-height: 13px;
+    text-align: center;
+
+    //slepa vetva dizajnu
+    //position: absolute;
+    //transform: rotate(-90deg);
+  }
+
+  &.activeSegment {
+    .label.active {
+      color: white;
+    }
+  }
+
+}
+
+// ====================================================
+// ====================================================
+// ====================================================
+
+.Pie {
+  font-size: 5px;
+  fill: $colorNe8;
+
+  .segment {
+    transition: stroke-width 0.2s;
+  }
+
+  .label {
+    cursor: pointer;
+  }
+
+  .centerLabel1, .centerLabel2 {
+    text-anchor: middle;
+  }
+
+  .centerLabel1 {
+    @extend %fontB800;
+    font-size: 20px;
+  }
+
+  .centerLabel2 {
+    @extend %fontA400;
+  }
+
+  &.activeSegment {
+    .centerLabel1 {
+      font-size: 16px;
+    }
+    .label.active {
+      fill: white;
+    }
+  }
+
+}

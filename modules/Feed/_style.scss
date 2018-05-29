@@ -1,0 +1,148 @@
+.Feed {
+
+  .Item {
+    @extend %sectionBody;
+    margin-bottom: $UI_BASE_MARGIN;
+
+    .dateTime {
+      float: right;
+      margin-left: 10px;
+      color: $colorNe5;
+      font-size: 12px;
+      text-align: right;
+    }
+
+    .regs {
+      margin-bottom: $UI_BASE_MARGIN / 2;
+      font-size: 12px;
+
+      span {
+
+        &:before {
+          margin-right: 4px;
+          color: $colorNe4;
+          @include fa-icon;
+          content: $fa-var-caret-right;
+        }
+
+        &:first-of-type:before {
+          content: $fa-var-map-marker;
+        }
+
+        a {
+          @extend %hoverUnderline;
+          color: $colorNe5;
+          margin-right: 8px;
+          &:hover {
+            color: $colorNe6;
+          }
+        }
+      }
+    }
+
+    .header {
+      color: $colorNe6;
+
+      .userName, .eventMsg, .inRelatedPub {
+        padding-right: 5px;
+      }
+
+      //display: flex;
+      //align-items: baseline;
+
+      > * {
+        //border: 1px solid red;
+        //flex: initial;
+      }
+
+      .userName {
+        //.known {
+        //font-weight: bold;
+        //color: $color6_dark;
+        //}
+      }
+
+      .eventMsg {
+        //font-style: italic;
+      }
+
+      a.relatedPub {
+        color: $colorNe6;
+        //text-decoration: none;
+        //&:hover {
+        //  text-decoration: underline;
+        //}
+      }
+
+    }
+
+    .html {
+      @extend %sectionBody__LightTopRow;
+
+
+      //todo: docasne usmernenie .pubListBox, kym je takyto
+      .pubListBox {
+        border: none;
+        background: none;
+        img.knpimg {
+          margin-left: 0 !important;
+        }
+      }
+
+
+      .contentNotAvailable {
+        color: $colorNe4;
+        font-style: italic;
+        font-size: 14px;
+        text-align: center;
+        margin: 15px 0;
+      }
+
+      .picturesPreview {
+
+        .picture {
+          margin-bottom: $grid-gutter-width / 2;
+          img {
+            @include img-fluid;
+          }
+        }
+
+        //ak je len jeden obrazok
+        .onePicture {
+          .picture {
+            //obmedzit vysku pre TALL obrazky
+            img {
+              width: auto;
+              max-height: 465px;
+            }
+          }
+        }
+
+        //ak je viac obrazkov
+        .pictures {
+          @extend .row;
+          .picture {
+            @extend .col-sm-6;
+            @extend .col-md-4;
+            @extend .col-lg-3;
+            @extend .col-xl-2;
+          }
+        }
+
+        .texts {
+          margin-top: 0;
+          font-size: 80%;
+        }
+
+      }
+
+
+    }
+
+    .likeRow {
+      @extend %sectionBody__LightTopRow;
+    }
+
+  }
+
+}

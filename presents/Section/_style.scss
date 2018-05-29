@@ -1,0 +1,30 @@
+//podobne ako PanelsGroup, asi zjednotit nejako
+.Section {
+
+  //aby ked je pod Section dalsi PanelsGroup s titulkom, aby bola medzera
+  margin-bottom: $UI_BASE_MARGIN;
+
+  > .title {
+    padding-top: $UI_BASE_MARGIN ; //padding namiesto margin koli collapsing margins
+    margin-bottom: ($UI_BASE_MARGIN / 2);
+    margin-left: $UI_BASE_MARGIN;
+    font-size: 13px;
+    color: $colorNe6;
+    text-transform: uppercase;
+  }
+
+  //todo: extendnut zo %roundedSectionBody
+  > .body {
+    border-radius: $UI_BASE_BORDER_RADIUS;
+    background-color: white;
+    padding: $UI_BASE_MARGIN;
+
+    @include xs {
+      border-radius: 0;
+      border-top: 1px solid $UI_COLOR_IOS_BORDER;
+      border-bottom: 1px solid $UI_COLOR_IOS_BORDER;
+      padding: 0; //ci nebude vadit ze JE padding v %roundedSectionBody
+    }
+  }
+
+}

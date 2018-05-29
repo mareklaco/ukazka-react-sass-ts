@@ -1,0 +1,1 @@
+export {xsBodyHOC} from './xsBodyHOC'

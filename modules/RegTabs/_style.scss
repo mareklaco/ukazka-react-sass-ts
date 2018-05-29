@@ -1,0 +1,21 @@
+.RegTabs {
+  @extend %roundedBgSection;
+
+  //aby taby s malo obsahom (1 Minipivovar) nezaberal prilis malo miesta
+  min-height: 300px;
+
+  padding-bottom: 50px;
+
+  .Tabmenu {
+    margin-bottom: $UI_BASE_MARGIN;
+  }
+
+  .PubsByBeer .Section.prevladajucePiva > .title {
+    padding-top: 0;
+  }
+
+  .Tabmenu + .PanelsGroup > .title {
+    padding-top: 0;
+  }
+
+}

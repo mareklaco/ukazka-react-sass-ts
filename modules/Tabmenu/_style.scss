@@ -1,0 +1,29 @@
+.Tabmenu {
+  //takto presne
+  margin-bottom: ($UI_BASE_MARGIN / 2);
+
+  .Tabs {
+    //border: 1px solid green;
+    //kvoli animacii &__secondaryTabs nemoze mat margin, lebo by skakala vyska po zmiznuti
+    //takto presne
+    //plati aj pre &__secondaryTabs
+    padding-bottom: ($UI_BASE_MARGIN / 2);
+
+    //okraj od kraju na mobile
+    padding-left: $UI_BASE_MARGIN;
+    padding-right: $UI_BASE_MARGIN;
+  }
+
+  &__secondaryTabs {
+
+    .Tabs {
+      //kvoli animacii, nemoze mat margin, lebo by skakala vyska po zmiznuti
+      .TabButton {
+        font-size: 11px;
+        letter-spacing: 0;
+        line-height: 100%;
+        padding: 4px 8px;
+      }
+    }
+  }
+}

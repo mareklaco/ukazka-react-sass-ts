@@ -1,0 +1,5 @@
+.Spacer {
+  //border: 1px solid red;
+  //height namiesto margin, aby sa spravne pocitala vyska, ked je v ramci FluidContainer
+  height: $UI_BASE_MARGIN;
+}

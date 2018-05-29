@@ -1,0 +1,23 @@
+.PubsByBeer {
+
+  //vsetko vnutri animovat fade-om
+  > * {
+    @extend %fadeInAnimation;
+  }
+
+  .Section.prevladajucePiva {
+    .Panel.slectedBrand {
+      //(pri XS) zrusit spodnu ciaru panelu
+      border-bottom: none;
+    }
+  }
+
+  //(zobrazi sa pri XS)
+  .Pie {
+    //SE mobil na sirku ma 320px; aby to nebolo prilis velke
+    max-width: 240px;
+    display: block;
+    margin: $UI_BASE_MARGIN auto;
+  }
+
+}

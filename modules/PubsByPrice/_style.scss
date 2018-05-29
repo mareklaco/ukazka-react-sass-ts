@@ -1,0 +1,8 @@
+.PubsByPrice {
+
+  //vsetko vnutri animovat fade-om
+  > * {
+    @extend %fadeInAnimation;
+  }
+
+}

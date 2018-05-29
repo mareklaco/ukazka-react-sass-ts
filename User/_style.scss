@@ -1,0 +1,37 @@
+$imgSize: 22px;
+
+.Avatar {
+  //border: 1px solid red;
+
+  a {
+    @extend %hoverUnderline;
+  }
+
+  display: inline-block;
+
+  img, .avatarPlaceholder {
+    border-radius: $UI_BASE_BORDER_RADIUS;
+    margin-right: 5px;
+    width: $imgSize;
+    height: $imgSize;
+  }
+
+  img {
+    //border: 1px solid blue;
+    display: inline-block;
+    vertical-align: middle;
+  }
+
+  .avatarPlaceholder {
+    color: white;
+    background-color: $color6_dark;
+    text-align: center;
+    line-height: $imgSize;
+  }
+
+  .userName {
+    //font-weight: bold;
+    color: $color6_dark;
+  }
+
+}

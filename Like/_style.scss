@@ -1,0 +1,107 @@
+@keyframes bumpyScale {
+  0% {
+    transform: translateY(-50%) translateX(-50%) scale(1);
+  }
+  30% {
+    transform: translateY(-50%) translateX(-50%) scale(1.7);
+  }
+  60% {
+    transform: translateY(-50%) translateX(-50%) scale(1.2);
+  }
+  100% {
+    transform: translateY(-50%) translateX(-50%) scale(1.5);
+  }
+}
+
+.LikeButton {
+
+  $bgColor: #fafafa;
+
+  button.button {
+    background-color: $bgColor;
+    border-color: $bgColor;
+    color: $colorNe7;
+    //font-weight: 100;
+    box-shadow: none;
+    text-shadow: none;
+
+    min-width: 160px;
+    line-height: 25px;
+    min-height: 32px;
+
+    i {
+      line-height: 12px;
+      margin: 0 3px;
+    }
+
+    &.hasMyLike {
+      color: $color5_dark0;
+      position: relative;
+      i.thumb {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translateY(-50%) translateX(-50%) scale(1.5);
+      }
+      &:hover, &:active {
+        color: darken($color5_dark0, 5%);
+      }
+    }
+
+    &.gotMyLike {
+      i.thumb {
+        animation: bumpyScale 0.4s;
+      }
+    }
+
+    &.isMyObject {
+      cursor: not-allowed;
+    }
+
+    &:hover {
+      background-color: darken($bgColor, 3%);
+    }
+
+    &:active {
+      background-color: darken($bgColor, 4%);
+    }
+
+    &[disabled]:hover {
+      background-color: $bgColor;
+    }
+    &[disabled],
+    &[disabled]:active {
+      border-color: transparent;
+    }
+
+  }
+
+  .likedInfo {
+    margin-top: 4px;
+  }
+
+  .likesCount {
+    color: $colorNe6;
+    font-size: 12px;
+  }
+
+  .likedUsers {
+    .Avatar {
+      img, .avatarPlaceholder {
+        width: 18px;
+        height: 18px;
+        line-height: 18px;
+        font-size: 12px;
+      }
+    }
+  }
+
+  .needLoginWarning {
+    margin-top: 5px;
+    font-size: 14px;
+  }
+  .needLoginWarning, .needLoginWarning a {
+    color: $colorIosRed;
+  }
+
+}

@@ -1,0 +1,156 @@
+.PanelsGroup {
+
+  //aby ked je pod PanelsGroup dalsi PanelsGroup s titulok, aby bola medzera
+  //(PubsByBeer: hlavny zoznma a po nom najlacnejsie)
+  margin-bottom: $UI_BASE_MARGIN;
+
+  > .title {
+    padding-top: $UI_BASE_MARGIN ; //padding namiesto margin koli collapsing margins
+    margin-bottom: ($UI_BASE_MARGIN / 2);
+    margin-left: $UI_BASE_MARGIN;
+    font-size: 13px;
+    color: $colorNe6;
+    text-transform: uppercase;
+  }
+
+  > .panels {
+    border-radius: $UI_BASE_BORDER_RADIUS;
+    background-color: white;
+
+    > .Panel.expanded {
+      margin-bottom: (2 * $UI_BASE_MARGIN);
+    }
+
+    > .Panel:first-child {
+      border-top: none;
+      @include xs {
+        border-top: 1px solid $UI_COLOR_IOS_BORDER;
+        &.expanded {
+          border-top-color: $UI_COLOR_KNP_BTN_BG_ACTIVE;
+        }
+      }
+      > .header {
+        border-top-right-radius: $UI_BASE_BORDER_RADIUS;
+        border-top-left-radius: $UI_BASE_BORDER_RADIUS;
+        @include xs {
+          border-top-right-radius: 0;
+          border-top-left-radius: 0;
+        }
+      }
+    }
+
+    > .Panel:last-child {
+      border-bottom: none;
+      @include xs {
+        border-bottom: 1px solid $UI_COLOR_IOS_BORDER;
+      }
+      > .header {
+        border-bottom-right-radius: $UI_BASE_BORDER_RADIUS;
+        border-bottom-left-radius: $UI_BASE_BORDER_RADIUS;
+        @include xs {
+          border-bottom-right-radius: 0;
+          border-bottom-left-radius: 0;
+        }
+      }
+      > .header.expanded {
+        border-bottom-right-radius: 0;
+        border-bottom-left-radius: 0;
+      }
+    }
+  }
+
+}
+
+//todo: porovnat rozdiely s BeersApp (najcastejsie znacky)
+.Panel {
+  border-top: 1px solid $UI_COLOR_IOS_BORDER;
+  transition: border-color 0.080s;
+
+  &:last-of-type {
+    border-bottom: 1px solid $UI_COLOR_IOS_BORDER;
+  }
+
+  &.expanded {
+    border-top-color: $UI_COLOR_KNP_BTN_BG_ACTIVE;
+  }
+
+  &.expanded + & {
+  }
+
+  h2 {
+    margin: 0;
+  }
+
+  .header {
+    @extend %no-highlight;
+    @extend %fontA600;
+    font-size: 18px;
+
+    padding: 8px 12px;
+    background-color: $UI_COLOR_KNP_BTN_BG;
+    color: $UI_COLOR_KNP_BTN;
+    transition: background-color 0.080s, color 0.080s;
+    display: flex;
+    align-items: baseline; //aby subTitle a title boli zahranene na vysku
+
+    &.togleable {
+      cursor: pointer;
+    }
+
+    > * {
+      //border: 1px solid green;
+    }
+
+    > .subTitle {
+      @extend %fontA400;
+      flex: 1;
+      font-size: 16px;
+      margin-left: 8px;
+      color: $colorNe4;
+
+      //aby cena piva bola dobre zahranena
+      @include xs {
+        flex: 90;
+        text-align: right;
+      }
+
+    }
+
+    > .controlls {
+      margin-left: 8px;
+      flex: 1; //aby bolo co najmensi1
+      align-self: center; //stred na vysku
+      text-align: right;
+      font-size: 22px;
+      line-height: 1px;
+    }
+
+    &.togleable:hover {
+      background-color: $UI_COLOR_KNP_BTN_BG_HOVER;
+    }
+
+    &.expanded,
+    &.togleable.expanded,
+    &.togleable:active {
+      color: $UI_COLOR_KNP_BTN_ACTIVE;
+      background-color: $UI_COLOR_KNP_BTN_BG_ACTIVE;
+      text-shadow: 1px 1px 3px rgba(100, 100, 100, 0.25);
+
+      > .subTitle {
+        color: $colorNe2;
+      }
+    }
+
+  }
+
+  .body {
+    background-color: white;
+    border-radius: $UI_BASE_BORDER_RADIUS;
+
+    .Pubs .pubsWrapper {
+      border: none;
+    }
+
+  }
+
+}

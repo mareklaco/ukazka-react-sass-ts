@@ -1,0 +1,80 @@
+$borderRadius: 5px;
+
+//todo: skusit by sa automaticky usekli/fadovali texty ak je malo miesta (?)
+.Tabs {
+  //border: 1px solid red;
+  display: flex;
+  justify-content: center;
+
+  //aby sa stackoval border
+  .TabButton + .TabButton {
+    margin-left: -1px;
+  }
+
+  .TabButton {
+    @extend %no-highlight;
+
+    //flex: 0 1 auto; //toto je default
+
+    @extend %fontA600;
+    font-size: 14px;
+    //letter-spacing: 0.2px;
+    line-height: 14px;
+
+    padding: 8px 12px;
+    margin: 0; //dvolezite pre mobil
+
+    color: $UI_COLOR_KNP_BTN;
+    background-color: $UI_COLOR_KNP_BTN_BG;
+    text-align: center;
+    border: 1px solid $UI_COLOR_KNP_BTN_BORDER;
+    //box-shadow: 2px 2px 10px rgba(155, 155, 155, 0.1);
+    transition: background-color 0.080s, color 0.080s;
+    cursor: pointer;
+
+    @include xs {
+      flex: 1 1 auto; //pri XS rozsirit na celu sirku, aby bolo krajsie vyuzitie priestoru
+
+      padding-left: 5px;
+      padding-right: 5px;
+    }
+
+    &:first-child {
+      border-bottom-left-radius: $borderRadius;
+      border-top-left-radius: $borderRadius;
+    }
+
+    &:last-child {
+      border-bottom-right-radius: $borderRadius;
+      border-top-right-radius: $borderRadius;
+    }
+
+    &:hover {
+      background-color: $UI_COLOR_KNP_BTN_BG_HOVER;
+    }
+
+    &[disabled],
+    &[disabled]:active {
+      color: silver;
+      background-color: #e6e6e6;
+      border-color: silver;
+      cursor: default;
+      opacity: 0.65;
+      box-shadow: none;
+      text-shadow: none;
+    }
+
+    &.TabButton__active {
+      cursor: default;
+    }
+
+    &.TabButton__active,
+    &:active {
+      color: $UI_COLOR_KNP_BTN_ACTIVE;
+      background-color: $UI_COLOR_KNP_BTN_BG_ACTIVE;
+      text-shadow: 1px 1px 3px rgba(100, 100, 100, 0.25);
+    }
+
+  }
+
+}

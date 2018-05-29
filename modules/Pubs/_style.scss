@@ -1,0 +1,28 @@
+.Pubs {
+
+  //aby neskakala vyska pocas nacitavania, t.j. toto o nieco viac ako vyska LoadingDiv
+  min-height: 105px;
+
+  .pubsWrapper {
+    @extend %sectionBodyNoPadding;
+  }
+
+  .pubWrapper {
+    @extend %sectionBodyNoPadding__Row;
+    background-image: linear-gradient(to bottom, $colorNe1 0%, white 15%);
+  }
+
+  //todo: docasne usmernenie .pubListBox, kym je takyto
+  .pubListBox {
+    padding-bottom: 0 !important;
+    border: none;
+    background: none;
+    img.knpimg {
+      margin-left: 0 !important;
+    }
+    > table {
+      padding-top: 0 !important;
+    }
+  }
+
+}
